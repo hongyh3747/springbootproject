@@ -27,6 +27,7 @@ public class UserController {
     @GetMapping("/delete")
     public String deleteUserById(@RequestParam String userId){
         System.out.println("删除用户"+userId);
+        log.info("delete user");
         userDao.deleteUserById(userId);
         return "redirect:/users/getAll";
     }
