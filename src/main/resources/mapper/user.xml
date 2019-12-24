@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.himiko.dao.UserDao">
+    <select id="findUserAll" resultType="com.example.himiko.pojo.UserInfo">
+        select userId,userName,phone ,sex from p_user
+    </select>
+
+    <insert id="addUser" parameterType="com.example.himiko.pojo.UserInfo">
+        insert into p_user(userId,userName,phone,sex)
+        values(#{userId},#{userName},#{phone},#{sex})
+    </insert>
+
+    <delete id="deleteUserById" parameterType="string">
+        delete from p_user where userId=#{userId}
+    </delete>
+
+</mapper>
